@@ -22,7 +22,9 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Print VCPKG
-      run: echo "$VCPKG_INSTALLATION_ROOT or ${{ github.VCPKG_INSTALLATION_ROOT }}"
+      env:
+        VCPKG_ROOT: $VCPKG_INSTALLATION_ROOT
+      run: echo "VCPKG: $VCPKG_ROOT or ${{ env.VCPKG_ROOT }}"
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
