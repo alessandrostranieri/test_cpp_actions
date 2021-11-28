@@ -22,7 +22,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Print VCPKG
-      run: echo "VCPKG: $VCPKG_ROOT or ${{env.VCPKG_ROOT}}"
+      run: echo "Hello"
       env:
         VCPKG_ROOT: $VCPKG_INSTALLATION_ROOT
 
