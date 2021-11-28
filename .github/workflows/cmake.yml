@@ -22,7 +22,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Set OS specific environment
-      run: echo "VCPKG_ROOT: ${{env.VCPKG_ROOT}}"
+      run: echo "VCPKG_ROOT: $VCPKG_ROOT"
       env:
         VCPKG_ROOT: "/usr/local/share/vcpkg"
 
