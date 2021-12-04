@@ -55,7 +55,7 @@
         },
         {
             "name": "linux-gcc-9-release",
-            "displayName": "GCC 9.3.0 x86_64-linux-gnu",
+            "displayName": "GCC 9.3.0 x86_64-linux-gnu | Release",
             "description": "Using compilers: C = /bin/x86_64-linux-gnu-gcc-9, CXX = /bin/x86_64-linux-gnu-g++-9",
             "generator": "Unix Makefiles",
             "binaryDir": "${sourceDir}/out/build/${presetName}",
@@ -72,7 +72,7 @@
         },
         {
             "name": "linux-gcc-9-debug",
-            "displayName": "GCC 9.3.0 x86_64-linux-gnu",
+            "displayName": "GCC 9.3.0 x86_64-linux-gnu | Debug",
             "description": "Using compilers: C = /bin/x86_64-linux-gnu-gcc-9, CXX = /bin/x86_64-linux-gnu-g++-9",
             "generator": "Unix Makefiles",
             "binaryDir": "${sourceDir}/out/build/${presetName}",
