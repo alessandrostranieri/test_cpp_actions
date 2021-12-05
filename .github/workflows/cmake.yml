@@ -8,7 +8,17 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-2022, ubuntu-20.04]
+        include:
+          - os: windows-2022
+            preset: windows-release
+          - os: ubuntu-20.04
+            preset: linux-release
+    
+    runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v2
@@ -16,12 +26,11 @@ jobs:
         submodules: 'true'
 
     - name: Configure CMake
-      run: cmake --preset "linux-release"
+      run: cmake --preset ${{ matrix.preset }}
 
     - name: Build
       # Build your program with the given configuration
-      run: cmake --build --preset "linux-release"
+      run: cmake --build --preset ${{ matrix.preset }}
 
     - name: Test
-      run: ctest --preset "linux-release"
-      
+      run: ctest --preset ${{ matrix.preset }}

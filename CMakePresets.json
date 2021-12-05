@@ -3,14 +3,12 @@
     "configurePresets": [
         {
             "name": "windows-debug",
-            "displayName": "Windows x64 Debug",
-            "description": "Sets Ninja generator, compilers, x64 architecture, build and install directory, debug build type",
-            "generator": "Ninja",
+            "displayName": "Visual Studio Community 2022 Release - amd64",
+            "description": "Using compilers for Visual Studio 17 2022 (x64 architecture)",
+            "generator": "Visual Studio 17 2022",
+            "toolset": "host=x64",
+            "architecture": "x64",
             "binaryDir": "${sourceDir}/out/build/${presetName}",
-            "architecture": {
-                "value": "x64",
-                "strategy": "external"
-            },
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
@@ -18,39 +16,18 @@
                     "value": "${sourceDir}/submodules/vcpkg/scripts/buildsystems/vcpkg.cmake",
                     "type": "FILEPATH"
                 }
-            },
-            "vendor": {
-                "microsoft.com/VisualStudioSettings/CMake/1.0": {
-                    "hostOS": [
-                        "Windows"
-                    ]
-                }
             }
         },
         {
             "name": "windows-release",
-            "displayName": "Windows x64 Release",
-            "description": "Target Windows with the Visual Studio development environment.",
-            "generator": "Ninja",
-            "binaryDir": "${sourceDir}/out/build/${presetName}",
-            "architecture": {
-                "value": "x64",
-                "strategy": "external"
-            },
+            "description": "",
+            "displayName": "",
+            "inherits": [
+                "windows-debug"
+            ],
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
-                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}",
-                "CMAKE_TOOLCHAIN_FILE": {
-                    "value": "${sourceDir}/submodules/vcpkg/scripts/buildsystems/vcpkg.cmake",
-                    "type": "FILEPATH"
-                }
-            },
-            "vendor": {
-                "microsoft.com/VisualStudioSettings/CMake/1.0": {
-                    "hostOS": [
-                        "Windows"
-                    ]
-                }
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}"
             }
         },
         {
@@ -90,6 +67,20 @@
     ],
     "buildPresets": [
         {
+            "name": "windows-debug",
+            "description": "",
+            "displayName": "",
+            "configurePreset": "windows-debug",
+            "configuration": "Debug"
+        },
+        {
+            "name": "windows-release",
+            "description": "",
+            "displayName": "",
+            "configurePreset": "windows-release",
+            "configuration": "Release"
+        },
+        {
             "name": "linux-debug",
             "description": "",
             "displayName": "",
@@ -97,12 +88,24 @@
         },
         {
             "name": "linux-release",
-            "description": "",
-            "displayName": "",
             "configurePreset": "linux-release"
         }
     ],
     "testPresets": [
+        {
+            "name": "windows-debug",
+            "description": "",
+            "displayName": "",
+            "configurePreset": "windows-debug",
+            "configuration": "Debug"
+        },
+        {
+            "name": "windows-release",
+            "description": "",
+            "displayName": "",
+            "configurePreset": "windows-release",
+            "configuration": "Release"
+        },
         {
             "name": "linux-debug",
             "description": "",
