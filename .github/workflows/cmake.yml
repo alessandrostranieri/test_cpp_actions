@@ -11,11 +11,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-latest, ubuntu-latest]
+        os: [windows-2022, ubuntu-20.04]
         include:
-          - os: windows-latest
+          - os: windows-2022
             preset: windows-release
-          - os: ubuntu-latest
+          - os: ubuntu-20.04
             preset: linux-release
     
     runs-on: ${{ matrix.os }}
