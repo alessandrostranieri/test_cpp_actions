@@ -3,7 +3,7 @@
     "configurePresets": [
         {
             "name": "windows-debug",
-            "displayName": "Visual Studio Community 2022 Release - amd64",
+            "displayName": "Visual Studio Community 2022 Debug - amd64",
             "description": "Using compilers for Visual Studio 17 2022 (x64 architecture)",
             "generator": "Visual Studio 17 2022",
             "toolset": "host=x64",
@@ -19,16 +19,16 @@
             }
         },
         {
-            "name": "windows-release",
-            "description": "",
-            "displayName": "",
-            "inherits": [
-                "windows-debug"
-            ],
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release",
-                "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}"
-            }
+          "name": "windows-release",
+          "displayName": "Visual Studio Community 2022 Release - amd64",
+          "description": "Using compilers for Visual Studio 17 2022 (x64 architecture)",
+          "inherits": [
+            "windows-debug"
+          ],
+          "cacheVariables": {
+            "CMAKE_BUILD_TYPE": "Release",
+            "CMAKE_INSTALL_PREFIX": "${sourceDir}/out/install/${presetName}"
+          }
         },
         {
             "name": "linux-debug",
